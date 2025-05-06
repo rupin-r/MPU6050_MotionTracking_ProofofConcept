@@ -3,7 +3,7 @@
 Instructions
 -------------------
 
-Most instructions for setting up and running a model can be found by altering instructions for mnist in the tutorial found here: https://github.com/analogdevicesinc/ai8x-synthesis/blob/develop/README.md
+Most instructions for setting up and running a model can be found by altering instructions for mnist in the tutorial found here: https://github.com/analogdevicesinc/ai8x-synthesis/blob/develop/README.md and here: https://github.com/analogdevicesinc/ai8x-training?tab=readme-ov-file
 
 The instructions found here are a simplification specific to the data presented here and Windows 10/11 with Windows Subsystem for Linux.
 
@@ -56,3 +56,66 @@ Establish git profile using:
 
     git config --global user.name "username"
 
+Create a directory to store your files in with mkdir:
+
+    mkdir example
+
+    cd example
+
+Then clone the repositories into this directory:
+
+    git clone --recursive https://github.com/analogdevicesinc/ai8x-training.git
+
+    git clone --recursive https://github.com/analogdevicesinc/ai8x-synthesis.gi
+
+Run the following lines to set up a virtual environment to use in the training folder:
+
+    cd ai8x-training
+
+    pyenv local 3.11.8
+
+    python -m venv .venv --prompt ai8x-training
+
+    echo "*" > .venv/.gitignore
+
+    source .venv/bin/activate
+
+You can exit the virtual environment using:
+
+    deactivate
+
+You can restart the virtual environment for any work you need to do in training just with:
+
+    source .venv/bin/activate
+
+Before deactivating the training virtual environment (or restart it if you have), install more dependencies:
+
+    pip3 install -U pip wheel setuptools
+
+    pip3 install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu121
+
+Run the following lines to set up a virtual environment to use in the synthesis folder:
+
+    cd ../ai8x-synthesis
+
+    pyenv local 3.11.8
+
+    python -m venv .venv --prompt ai8x-synthesis
+
+    echo "*" > .venv/.gitignore
+
+    source .venv/bin/activate
+
+You can exit the virtual environment using:
+
+    deactivate
+
+You can restart the virtual environment for any work you need to do in training just with:
+
+    source .venv/bin/activate
+
+Again, before deactivating, install more dependencies:
+
+    pip3 install -U pip setuptools
+
+    pip3 install -r requirements.txt
