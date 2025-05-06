@@ -87,16 +87,26 @@ See file BodyPlacement.
 ***Neural Network Architecture***
 
 See imu.yaml in the Neural Network folder
+
 SUMMARY OF OPS
+
 Hardware: 1,715,382 ops (1,703,817 macc; 11,565 comp; 0 add; 0 mul; 0 bitwise)
+
     Layer 0 (trans_conv1_ConvTranspose_8): 622,080 ops (622,080 macc; 0 comp; 0 add; 0 mul; 0 bitwise)
+    
     Layer 1 (trans_conv2_ConvTranspose_6): 663,552 ops (663,552 macc; 0 comp; 0 add; 0 mul; 0 bitwise)
+    
     Layer 2 (conv1_Conv_6): 336,384 ops (331,776 macc; 4,608 comp; 0 add; 0 mul; 0 bitwise)
+    
     Layer 3 (conv2_Conv_6): 88,704 ops (82,944 macc; 5,760 comp; 0 add; 0 mul; 0 bitwise)
+    
     Layer 4 (conv3_Conv_6): 4,437 ops (3,240 macc; 1,197 comp; 0 add; 0 mul; 0 bitwise)
+    
     Layer 5 (fc_Gemm_4): 225 ops (225 macc; 0 comp; 0 add; 0 mul; 0 bitwise)
 
 RESOURCE USAGE
+    
     Weight memory: 7,209 bytes out of 442,368 bytes total (1.6%)
+    
     Bias memory:   50 bytes out of 2,048 bytes total (2.4%)
 
