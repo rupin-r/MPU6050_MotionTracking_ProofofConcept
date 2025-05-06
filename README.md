@@ -112,17 +112,41 @@ RESOURCE USAGE
 
 AIM
 
-The neural network should be small, but this was a lot smaller than it could have been considering it takes up < 3% of the processor space.
+The neural network should be small and extremely, but this was a lot smaller than it could have been considering it takes up < 3% of the processor space.
 
-Further work can be done in changing the model to a larger model.
+Since the input is considered small ([30, 6, 6]), the goal was to enlarge the sample first, then go further down to the 5 output classification.
 
-However, irregardless of size, the network was able to have high accuracy with 8-bit quantization.
+Therefore, the first two layers undergo 2D Convolutional Transpose, but were unable to quickly increase the size due to hardware constraints on kernel size.
 
-2025-05-05 01:05:35,825 - ==> Top1: 97.833    Loss: 0.083
+The next convolutional layers bring the size back down.
 
-2025-05-05 01:05:35,826 - ==> Confusion:
+Further work can be done in changing the model to a larger model with more convolutional transposes for better results.
+
+However, irregardless of size, the network was able to have high accuracy with 8-bit quantization (it might also be a little overfit, but that was intentional).
+
+    2025-05-05 01:05:35,825 - ==> Top1: 97.833    Loss: 0.083
+
+    2025-05-05 01:05:35,826 - ==> Confusion:
 [[ 373    5    0    0   12]
  [   1 3259    1    0   93]
  [   0    4 2935    0    1]
  [   0    0    1  366    0]
  [   1   86    0    0 2324]]
+
+ This was not able to be tested with further real world data because of failed I2C communications and wires breaking. However, it did classify all 0s as sitting which is pretty good.
+ 
+
+ CONSIDERATIONS
+
+ The neural network runs in series with data collection. Due to the current I2C characteristics seen on both the Arduino and MAX78000FTHR, each sample takes ~10 ms for a single [1,6,6] capture.
+ Therefore, 3 seconds after device and data initialization are needed before the first classification. After the 3 seconds, frames are sampled every second by pushing in 8 frames and popping 8 frames.
+ For consistency in collected data from input data to training data, inference time should approach 0. However, if implemented on a separate thread, the inference time would only have to be less than 1 second. 
+ In this case, frame time can be extended for bigger frames and the model can be even bigger.
+
+ 
+--------------------
+Reproduction
+--------------------
+ 
+This guide is specifically for Windows 10/11.
+
