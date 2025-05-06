@@ -110,3 +110,19 @@ RESOURCE USAGE
     
     Bias memory:   50 bytes out of 2,048 bytes total (2.4%)
 
+AIM
+
+The neural network should be small, but this was a lot smaller than it could have been considering it takes up < 3% of the processor space.
+
+Further work can be done in changing the model to a larger model.
+
+However, irregardless of size, the network was able to have high accuracy with 8-bit quantization.
+
+2025-05-05 01:05:35,825 - ==> Top1: 97.833    Loss: 0.083
+
+2025-05-05 01:05:35,826 - ==> Confusion:
+[[ 373    5    0    0   12]
+ [   1 3259    1    0   93]
+ [   0    4 2935    0    1]
+ [   0    0    1  366    0]
+ [   1   86    0    0 2324]]
