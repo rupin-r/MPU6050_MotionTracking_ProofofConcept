@@ -1,0 +1,2 @@
+#!/bin/sh
+python train.py --epochs 200 --optimizer Adam --lr 0.00032 --wd 0 --compress policies/schedule.yaml --model ai85netextrasmall --dataset IMU_AI --device MAX78000 --batch-size 32 --print-freq 100 --enable-tensorboard --validation-split 0 "$@"
