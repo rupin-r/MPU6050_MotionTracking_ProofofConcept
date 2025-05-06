@@ -127,11 +127,16 @@ However, irregardless of size, the network was able to have high accuracy with 8
     2025-05-05 01:05:35,825 - ==> Top1: 97.833    Loss: 0.083
 
     2025-05-05 01:05:35,826 - ==> Confusion:
-[[ 373    5    0    0   12]
- [   1 3259    1    0   93]
- [   0    4 2935    0    1]
- [   0    0    1  366    0]
- [   1   86    0    0 2324]]
+    
+    [[ 373    5    0    0   12]
+    
+     [   1 3259    1    0   93]
+    
+     [   0    4 2935    0    1]
+     
+     [   0    0    1  366    0]
+     
+     [   1   86    0    0 2324]]
 
  This was not able to be tested with further real world data because of failed I2C communications and wires breaking. However, it did classify all 0s as sitting which is pretty good.
  
