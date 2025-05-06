@@ -146,7 +146,7 @@ However, irregardless of size, the network was able to have high accuracy with 8
  The neural network runs in series with data collection. Due to the current I2C characteristics seen on both the Arduino and MAX78000FTHR, each sample takes ~10 ms for a single [1,6,6] capture.
  Therefore, 3 seconds after device and data initialization are needed before the first classification. After the 3 seconds, frames are sampled every second by pushing in 8 frames and popping 8 frames.
  For consistency in collected data from input data to training data, inference time should approach 0. However, if implemented on a separate thread, the inference time would only have to be less than 1 second. 
- In this case, frame time can be extended for bigger frames and the model can be even bigger.
+ In such a case, frame time can be extended for bigger frames and the model can be even bigger.
 
  
 --------------------
