@@ -1,0 +1,2 @@
+#!/bin/sh
+python train.py --model ai85netextrasmall --dataset IMU_AI --batch-size 8 --confusion --evaluate --exp-load-weights-from ../ai8x-synthesis/trained/imu_q8.pth.tar -8 --device MAX78000 --use-bias --save-sample 5 "$@"
