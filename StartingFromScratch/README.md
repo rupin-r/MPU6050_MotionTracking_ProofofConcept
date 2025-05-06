@@ -19,9 +19,6 @@ Open the Microsoft store and install Ubuntu 22.04.5
 
 You can now open a WSL terminal by searching Ubuntu in the start bar
 
-
-***Install ai8x-trainer and ai8x-synthesizer***
-
 Open a WSL terminal and run:
 
     sudo apt upgrade
@@ -45,6 +42,8 @@ You can open one of these files using nano to edit them. For instance:
 Copy the lines given to you at the end of the files prompted by the terminal. Using nano, use CTRL + X to exit and save to a file.
 
 Close the terminal and open a new WSL terminal
+
+***Install ai8x-trainer and ai8x-synthesizer***
 
 Install python using:
 
