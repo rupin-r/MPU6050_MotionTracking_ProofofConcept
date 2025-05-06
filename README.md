@@ -76,7 +76,7 @@ Design
 
 ***Wiring Diagram***
 
-See file WiringDiagram.
+See file WiringDiagram.png
 
 
 ***MPU Positioning***
