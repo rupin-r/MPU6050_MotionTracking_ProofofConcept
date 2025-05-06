@@ -11,7 +11,7 @@ The instructions found here are a simplification specific to the data presented 
 
 Open a command prompt as administrator and run:
 
-  C:\> wsl --install
+    C:\> wsl --install
 
 Then restart your computer (not just your terminal)
 
@@ -24,23 +24,23 @@ You can now open a WSL terminal by searching Ubuntu in the start bar
 
 Open a WSL terminal and run:
 
-  sudo apt upgrade
+    sudo apt upgrade
 
-  sudo apt update
+    sudo apt update
 
 Then run the following command to install dependencies:
 
-  sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev libsndfile-dev portaudio19-dev libsox-dev
+    sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev libsndfile-dev portaudio19-dev libsox-dev
 
 After installing dependencies, install python3 with:
 
-  curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+    curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
 The terminal will then prompt you to add lines to one or more of ~/.bash_profile, ~/.bashrc, ~/.zshrc, ~/.profile, or ~/.zprofile
 
 You can open one of these files using nano to edit them. For instance:
 
-  nano ~/.profile
+    nano ~/.profile
 
 Copy the lines given to you at the end of the files prompted by the terminal. Using nano, use CTRL + X to exit and save to a file.
 
@@ -48,11 +48,11 @@ Close the terminal and open a new WSL terminal
 
 Install python using:
 
-  pyenv install 3.11.8
+    pyenv install 3.11.8
 
 Establish git profile using:
 
-  git config --global user.email "email@example.com"
+    git config --global user.email "email@example.com"
 
-  git config --global user.name "username"
+    git config --global user.name "username"
 
