@@ -43,6 +43,7 @@ Copy the lines given to you at the end of the files prompted by the terminal. Us
 
 Close the terminal and open a new WSL terminal
 
+
 ***Install ai8x-trainer and ai8x-synthesizer***
 
 Install python using:
@@ -118,3 +119,5 @@ Again, before deactivating, install more dependencies:
     pip3 install -U pip setuptools
 
     pip3 install -r requirements.txt
+
+***Data Loader***
