@@ -153,5 +153,20 @@ However, irregardless of size, the network was able to have high accuracy with 8
 Reproduction
 --------------------
  
-This guide is specifically for Windows 10/11.
+This guide is specifically for Windows 10/11 using Eclipse SDK
+
+SETUP DRIVER
+
+Follow the steps in https://github.com/analogdevicesinc/MaximAI_Documentation/tree/main/MAX78000_Feather for getting started. If the link does not redirect, in the directory on the left hand side, select MAX78000_Evaluation_Kit. Then double click in MAX32625PICO_files. The device driver is there for the adapter firmware.
+
+SOFTWARE DOWNLOAD
+
+Go to this link: https://www.analog.com/en/resources/evaluation-hardware-and-software/embedded-development-software/software-download.html?swpart=SFW0010820B. Then click MaximMicrosSDK_win.exe and download it. You may need to create an account for this. Run the executable and install everything into the default directory. After installing everything, eclipse SDK should be accessible. Before opening eclipse SDK, copy the folder imu_fixed_inputs_no_softmax into C:/MaximSDK/Examples/MAX78000
+
+Run MinGw to setup your environment. Change directory in the terminal of MinGw to the imu_fixed_inputs_no_softmax folder. Run 'make' and ensure the file builds. Once the file is built, you can upload the code to the board using 'make flash.openocd'. If the file doesn't build, you may need to install some additional stuff. This would include cloning the msdk git repository and creating a symbolic link to MaximSDK Tools. Details on these instructions can be found here: https://github.com/analogdevicesinc/msdk/blob/main/README.md
+
+RUNNING THE PROGRAM
+
+The program automatically starts after flashing. The program then restarts everytime it is powered on. You can debug the program using MinGw by typing 'openocd -s $MAXIM_PATH/Tools/OpenOCD/scripts -f interface/cmsis-dap.cfg -f target/max78000.cfg -c "program build/max78000.elf verify; init; reset halt"' into one MinGw terminal and 'arm-none-eabi-gdb --se=build/max78000.elf' into another MinGw terminal. The second command starts a gdb debugger. Before you start debugging, type in 'target extended-remote localhost:3333' and press enter. Then run 'monitor reset halt' and you can debug the program. More information can be found here: https://analogdevicesinc.github.io/msdk/USERGUIDE/#command-line-development
+
 
