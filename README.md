@@ -81,7 +81,7 @@ See file WiringDiagram.png
 
 ***MPU Positioning***
 
-See file BodyPlacement.
+See file BodyPlacement.png
 
 
 ***Neural Network Architecture***
