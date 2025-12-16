@@ -136,7 +136,7 @@ Then you need to select/create a model. The github for training and synthesis co
 
 Lastly, you put all these parameters together into the training file to actually train the model. There are two main files to look at: train_kinetics.sh and evaluate_kinetics.sh. These files were edited from their original implementation as an example to use with the IMU dataset of this project.
 
-You can edit any parameters for training or evaluating the model and more details can be found on their website.
+You can edit any parameters for training or evaluating the model and more details can be found on their website: https://github.com/analogdevicesinc/ai8x-training?tab=readme-ov-file
 
 ***Synthesizing***
 
