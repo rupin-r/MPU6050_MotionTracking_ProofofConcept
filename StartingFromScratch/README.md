@@ -121,3 +121,17 @@ Again, before deactivating, install more dependencies:
     pip3 install -r requirements.txt
 
 ***Data Loader***
+
+To start training the model, the data must be loaded into a created/selected model
+
+Specifically, data must be accessible through the dataset class as it allows for indexed access of data
+
+You can follow the template given by training/imu.py which loads data from a json file
+
+The class IMU_AI holds the dataset and allows for indexing of elements of the dataset. It also contains a loader which gives access to both the train and test datasets.
+
+These must then be defined in a dataset construct at the end as shown in the file
+
+Then you need to select/create a model. The github for training and synthesis comes with premade models, but you can choose to make your own following the same format. I chose to use a premade model: ai85net.py
+
+Lastly, you put all these parameters together into the training file to actually train the model. There are two main files to look at: train_kinetics.sh and evaluate_kinetics.sh. These files were edited from their original implementation as an example to use with the IMU dataset of this project.
