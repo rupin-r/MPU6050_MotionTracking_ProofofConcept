@@ -135,3 +135,8 @@ These must then be defined in a dataset construct at the end as shown in the fil
 Then you need to select/create a model. The github for training and synthesis comes with premade models, but you can choose to make your own following the same format. I chose to use a premade model: ai85net.py
 
 Lastly, you put all these parameters together into the training file to actually train the model. There are two main files to look at: train_kinetics.sh and evaluate_kinetics.sh. These files were edited from their original implementation as an example to use with the IMU dataset of this project.
+
+You can edit any parameters for training or evaluating the model and more details can be found on their website.
+
+***Synthesizing***
+
