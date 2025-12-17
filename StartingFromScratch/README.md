@@ -140,3 +140,13 @@ You can edit any parameters for training or evaluating the model and more detail
 
 ***Synthesizing***
 
+Synthesizing turns the created model into an embedded C program for the TPU on the MAX78000 to run
+
+First you need a model formatted to yaml as seen in synthesis/imu.yaml
+
+This was taken from the example ai85net as well
+
+You then need to copy over a checkpoint tar file from training to synthesis that you would like to load onto the TPU
+
+You also need a sample input data in the form of .npy. You can choose to either use a random input generation in python or save an input slice from the evaluation dataset. The parameter --save-sample _ saves an input slice as a .npy file. synthesis/sample_imu_ai.py is an example of a slice of input 5 as seen in training/evaluate_kinetics.sh at the end.
+
