@@ -150,3 +150,46 @@ You then need to copy over a checkpoint tar file from training to synthesis that
 
 You also need a sample input data in the form of .npy. You can choose to either use a random input generation in python or save an input slice from the evaluation dataset. The parameter --save-sample _ saves an input slice as a .npy file. synthesis/sample_imu_ai.py is an example of a slice of input 5 as seen in training/evaluate_kinetics.sh at the end.
 
+After gathering these three inputs, you can run ai8xize.py
+
+Again, more information can be found on their website: https://github.com/analogdevicesinc/ai8x-training?tab=readme-ov-file, but closer to the bottom for synthesis.
+
+***Coding***
+
+Synthesis will generate basically an entire eclipse project
+
+You simply need to load the project into eclipse and you can start coding
+
+main.c is the place to start coding and you can add additional files and methods as needed
+
+The code I have implements I2C multiplexing among 6 MPU6050 and an additional UART protocol for Bluetooth readout
+
+To start the TPU, first run 
+
+    cnn_enable(MXC_S_GCR_PCLKDIV_CNNCLKSEL_PCLK, MXC_S_GCR_PCLKDIV_CNNCLKDIV_DIV1); 
+    
+which runs the TPU with a 50 MHz clock
+
+Then run 
+
+    cnn_init(); // Bring state machine into consistent state
+
+    cnn_load_weights(); // Load kernels
+
+    cnn_load_bias();
+
+    cnn_configure(); // Configure state machine
+
+Data can be placed into an array memory mapped to the TPU using memcpy. I use a dedicated method to transfer array data into the correct location in memory for the TPU.
+
+Lastly, run 
+
+    cnn_start(); // Start CNN processing
+
+	while (cnn_time == 0)
+	
+        MXC_LP_EnterSleepMode(); // Wait for CNN
+		
+    cnn_unload((uint32_t*) ml_data);
+
+To run the TPU with the loaded data and wait for outputs. In this case, outputs are placed into a uint32 pointer and can be read out in order.
